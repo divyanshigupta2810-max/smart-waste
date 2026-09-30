@@ -149,7 +149,7 @@ Smart-Waste-Management/
 
 1. Clone the repository
 
-git clone https://github.com/divyanshigupta2810-max/smart-waste-management.git
+git clone https://github.com/divyanshigupta2810-max/smart-waste.git
 
 2. Open the project
 
