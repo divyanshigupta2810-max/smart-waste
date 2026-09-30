@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report Waste Issue | SmartWaste</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f8f5;
+            color: #173b2a;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 72px;
+            background: white;
+            border-bottom: 1px solid #e1ebe5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+        }
+
+        .logo {
+            color: #16834b;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #16834b;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* MAIN */
+
+        .main {
+            max-width: 850px;
+            margin: auto;
+            padding: 45px 20px 70px;
+        }
+
+        .heading {
+            margin-bottom: 28px;
+        }
+
+        .heading h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #718078;
+            line-height: 1.6;
+        }
+
+        /* FORM CARD */
+
+        .form-card {
+            background: white;
+            border: 1px solid #e0eae4;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #355444;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .required {
+            color: #e05252;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #d4e3da;
+            border-radius: 11px;
+            background: #fbfdfc;
+            outline: none;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        select {
+            padding: 14px;
+            cursor: pointer;
+        }
+
+        textarea {
+            padding: 14px;
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        select:focus,
+        textarea:focus {
+            border-color: #16834b;
+            box-shadow: 0 0 0 3px rgba(22, 131, 75, 0.12);
+            background: white;
+        }
+
+        /* FILE UPLOAD */
+
+        .upload-box {
+            border: 2px dashed #b9d8c4;
+            border-radius: 15px;
+            padding: 28px;
+            text-align: center;
+            background: #f8fcf9;
+            transition: 0.2s;
+        }
+
+        .upload-box:hover {
+            border-color: #16834b;
+            background: #f0faf3;
+        }
+
+        .upload-icon {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .upload-box p {
+            color: #718078;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            max-width: 350px;
+            padding: 10px;
+            border: 1px solid #d4e3da;
+            border-radius: 9px;
+            background: white;
+        }
+
+        /* SUBMIT */
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: #16834b;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #116d3e;
+            transform: translateY(-2px);
+            box-shadow: 0 9px 22px rgba(22, 131, 75, 0.22);
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 18px;
+            color: #718078;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .main {
+                padding: 30px 15px;
+            }
+
+            .form-card {
+                padding: 25px 20px;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            🌿 SmartWaste
+        </div>
+
+        <a href="/dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <main class="main">
+
+        <div class="heading">
+
+            <h1>
+                🚨 Report Waste Issue
+            </h1>
+
+            <p>
+                Help keep your community clean by reporting
+                waste and sanitation problems.
+            </p>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <!-- BACKEND FORM — PRESERVED -->
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Waste Issue <span class="required">*</span>
+                    </label>
+
+                    <select
+                        name="category"
+                        id="category"
+                        required
+                    >
+
+                        <option value="">
+                            Select issue type
+                        </option>
+
+                        <option value="Overflowing Bin">
+                            🗑️ Overflowing Bin
+                        </option>
+
+                        <option value="Illegal Dumping">
+                            🚯 Illegal Dumping
+                        </option>
+
+                        <option value="Missed Collection">
+                            🚛 Missed Collection
+                        </option>
+
+                        <option value="Garbage on Road">
+                            🛣️ Garbage on Road
+                        </option>
+
+                        <option value="Other">
+                            📌 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description <span class="required">*</span>
+                    </label>
+
+                    <textarea
+                        name="description"
+                        id="description"
+                        rows="5"
+                        placeholder="Describe the waste problem, location or any other useful details..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- IMAGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Upload Image
+                    </label>
+
+                    <div class="upload-box">
+
+                        <div class="upload-icon">
+                            📷
+                        </div>
+
+                        <p>
+                            Add a photo of the waste issue
+                            to help authorities understand
+                            the problem.
+                        </p>
+
+                        <!-- BACKEND FIELD — PRESERVED -->
+
+                        <input
+                            type="file"
+                            name="image"
+                            accept="image/*"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Submit Complaint →
+                </button>
+
+            </form>
+
+
+            <p class="note">
+                🌱 Thank you for helping create a cleaner community.
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

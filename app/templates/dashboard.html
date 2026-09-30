@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | SmartWaste</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f8f5;
+            color: #173b2a;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 72px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            border-bottom: 1px solid #e4ece7;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #16834b;
+        }
+
+        .logout {
+            text-decoration: none;
+            color: #d34b4b;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 9px;
+            transition: 0.2s;
+        }
+
+        .logout:hover {
+            background: #fff0f0;
+        }
+
+        /* MAIN */
+
+        .main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 45px 25px;
+        }
+
+        .welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .welcome h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #718078;
+            font-size: 16px;
+        }
+
+        .role {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 7px 13px;
+            border-radius: 20px;
+            background: #e0f5e8;
+            color: #16834b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .welcome-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 25px;
+            background: #dff4e7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+        }
+
+        /* SERVICES */
+
+        .section-title {
+            margin-bottom: 18px;
+        }
+
+        .section-title h2 {
+            font-size: 23px;
+        }
+
+        .section-title p {
+            color: #718078;
+            margin-top: 5px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #e0eae4;
+            border-radius: 20px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-color: #b9ddc7;
+        }
+
+        .service-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: #e3f6e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 21px;
+            margin-bottom: 9px;
+        }
+
+        .service-card p {
+            color: #718078;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .action {
+            color: #16834b;
+            font-weight: 700;
+        }
+
+        /* INFO */
+
+        .info {
+            margin-top: 30px;
+            padding: 25px 30px;
+            background: #173b2a;
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .info-icon {
+            font-size: 35px;
+        }
+
+        .info h3 {
+            margin-bottom: 6px;
+        }
+
+        .info p {
+            color: #cfe3d6;
+            line-height: 1.5;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .welcome {
+                align-items: flex-start;
+            }
+
+            .welcome-icon {
+                display: none;
+            }
+
+            .welcome h1 {
+                font-size: 28px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .main {
+                padding: 30px 18px;
+            }
+
+            .info {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            🌿 SmartWaste
+        </div>
+
+        <!-- BACKEND LOGOUT ROUTE — PRESERVED -->
+
+        <a href="{{ url_for('main.logout') }}" class="logout">
+            Logout ↗
+        </a>
+
+    </nav>
+
+
+    <main class="main">
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <div>
+
+                <h1>
+                    Welcome, {{ current_user.name }} 👋
+                </h1>
+
+                <p>
+                    Manage your waste-related requests
+                    from your citizen dashboard.
+                </p>
+
+                <span class="role">
+                    👤 {{ current_user.role }}
+                </span>
+
+            </div>
+
+            <div class="welcome-icon">
+                🌱
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <div class="section-title">
+
+            <h2>
+                Citizen Services
+            </h2>
+
+            <p>
+                What would you like to do today?
+            </p>
+
+        </div>
+
+
+        <section class="services">
+
+            <!-- REPORT -->
+
+            <a href="/report" class="service-card">
+
+                <div class="service-icon">
+                    🚨
+                </div>
+
+                <h3>
+                    Report Waste Issue
+                </h3>
+
+                <p>
+                    Found garbage or an unclean area?
+                    Submit a complaint and help authorities
+                    take action.
+                </p>
+
+                <span class="action">
+                    Report an Issue →
+                </span>
+
+            </a>
+
+
+            <!-- TRACK -->
+
+            <a href="/track" class="service-card">
+
+                <div class="service-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Track Complaint
+                </h3>
+
+                <p>
+                    Check the current status of your
+                    previously submitted waste complaint.
+                </p>
+
+                <span class="action">
+                    Track Complaint →
+                </span>
+
+            </a>
+
+        </section>
+
+
+        <!-- INFO -->
+
+        <section class="info">
+
+            <div class="info-icon">
+                ♻️
+            </div>
+
+            <div>
+
+                <h3>
+                    Every report makes a difference.
+                </h3>
+
+                <p>
+                    Your contribution helps create a
+                    cleaner, healthier and more sustainable
+                    community.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Complaint | SmartWaste</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f8f5;
+            color: #173b2a;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 72px;
+            background: white;
+            border-bottom: 1px solid #e1ebe5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+        }
+
+        .logo {
+            color: #16834b;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #16834b;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* MAIN */
+
+        .main {
+            max-width: 950px;
+            margin: auto;
+            padding: 45px 20px 70px;
+        }
+
+        .heading {
+            margin-bottom: 25px;
+        }
+
+        .heading h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #718078;
+            line-height: 1.6;
+        }
+
+        /* SEARCH */
+
+        .search-card {
+            background: white;
+            padding: 28px;
+            border: 1px solid #e0eae4;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            margin-bottom: 25px;
+        }
+
+        .search-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #355444;
+            margin-bottom: 9px;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .search-row input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #d4e3da;
+            border-radius: 11px;
+            outline: none;
+            font-size: 15px;
+            background: #fbfdfc;
+        }
+
+        .search-row input:focus {
+            border-color: #16834b;
+            box-shadow: 0 0 0 3px rgba(22, 131, 75, 0.12);
+            background: white;
+        }
+
+        .search-btn {
+            padding: 14px 23px;
+            border: none;
+            border-radius: 11px;
+            background: #16834b;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-btn:hover {
+            background: #116d3e;
+            transform: translateY(-2px);
+        }
+
+        /* ERROR */
+
+        .error {
+            background: #fff1f1;
+            border: 1px solid #ffd0d0;
+            color: #c43f3f;
+            padding: 15px 18px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        /* DETAILS */
+
+        .details-card {
+            background: white;
+            border: 1px solid #e0eae4;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .details-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .details-header h2 {
+            font-size: 23px;
+        }
+
+        .status-badge {
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: #e0f5e8;
+            color: #16834b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .detail {
+            background: #f8fbf9;
+            padding: 17px;
+            border-radius: 13px;
+        }
+
+        .detail.full {
+            grid-column: 1 / -1;
+        }
+
+        .detail-label {
+            display: block;
+            color: #7a8981;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 7px;
+        }
+
+        .detail-value {
+            color: #234735;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        /* PROGRESS */
+
+        .progress-section {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px solid #e5ece7;
+        }
+
+        .progress-section h3 {
+            margin-bottom: 28px;
+            font-size: 21px;
+        }
+
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            gap: 10px;
+        }
+
+        .progress::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            left: 5%;
+            right: 5%;
+            height: 4px;
+            background: #e0e8e3;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .circle {
+            width: 38px;
+            height: 38px;
+            margin: auto;
+            border-radius: 50%;
+            background: #e5ece8;
+            color: #809087;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 800;
+            border: 4px solid white;
+        }
+
+        .step.active .circle {
+            background: #16834b;
+            color: white;
+        }
+
+        .step-name {
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #7a8981;
+        }
+
+        .step.active .step-name {
+            color: #16834b;
+        }
+
+        /* FOOTER */
+
+        .dashboard-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #16834b;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .main {
+                padding: 30px 15px;
+            }
+
+            .heading h1 {
+                font-size: 28px;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail.full {
+                grid-column: auto;
+            }
+
+            .progress {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .progress::before {
+                left: 18px;
+                top: 18px;
+                bottom: 18px;
+                width: 4px;
+                height: auto;
+                right: auto;
+            }
+
+            .step {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                text-align: left;
+            }
+
+            .step-name {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            🌿 SmartWaste
+        </div>
+
+        <a href="/dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </nav>
+
+
+    <main class="main">
+
+        <!-- HEADING -->
+
+        <div class="heading">
+
+            <h1>
+                🔎 Track Your Complaint
+            </h1>
+
+            <p>
+                Enter your Complaint ID to check its
+                current status and progress.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-card">
+
+            <form method="POST">
+
+                <label class="search-label" for="complaint_id">
+                    Complaint ID
+                </label>
+
+                <div class="search-row">
+
+                    <input
+                        type="text"
+                        id="complaint_id"
+                        name="complaint_id"
+                        placeholder="Example: SW-A83F21C4"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="search-btn"
+                    >
+                        Track Complaint →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        {% if error %}
+
+        <div class="error">
+            ⚠️ {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <!-- COMPLAINT -->
+
+        {% if complaint %}
+
+        <div class="details-card">
+
+            <div class="details-header">
+
+                <h2>
+                    Complaint Details
+                </h2>
+
+                <span class="status-badge">
+                    {{ complaint.status }}
+                </span>
+
+            </div>
+
+
+            <div class="details-grid">
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        Complaint ID
+                    </span>
+
+                    <span class="detail-value">
+                        {{ complaint.complaint_id }}
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        Category
+                    </span>
+
+                    <span class="detail-value">
+                        {{ complaint.category }}
+                    </span>
+
+                </div>
+
+
+                <div class="detail full">
+
+                    <span class="detail-label">
+                        Description
+                    </span>
+
+                    <span class="detail-value">
+                        {{ complaint.description }}
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        Priority
+                    </span>
+
+                    <span class="detail-value">
+                        {{ complaint.priority }}
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        Submitted On
+                    </span>
+
+                    <span class="detail-value">
+                        {{ complaint.created_at }}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-section">
+
+                <h3>
+                    Complaint Progress
+                </h3>
+
+
+                <div class="progress">
+
+
+                    <!-- SUBMITTED -->
+
+                    <div class="step active">
+
+                        <div class="circle">
+                            ✓
+                        </div>
+
+                        <div class="step-name">
+                            Submitted
+                        </div>
+
+                    </div>
+
+
+                    <!-- UNDER REVIEW -->
+
+                    <div class="step
+                    {% if complaint.status in ['Under Review', 'Assigned', 'In Progress', 'Resolved'] %}
+                        active
+                    {% endif %}
+                    ">
+
+                        <div class="circle">
+                            {% if complaint.status in ['Under Review', 'Assigned', 'In Progress', 'Resolved'] %}
+                                ✓
+                            {% else %}
+                                2
+                            {% endif %}
+                        </div>
+
+                        <div class="step-name">
+                            Under Review
+                        </div>
+
+                    </div>
+
+
+                    <!-- ASSIGNED -->
+
+                    <div class="step
+                    {% if complaint.status in ['Assigned', 'In Progress', 'Resolved'] %}
+                        active
+                    {% endif %}
+                    ">
+
+                        <div class="circle">
+                            {% if complaint.status in ['Assigned', 'In Progress', 'Resolved'] %}
+                                ✓
+                            {% else %}
+                                3
+                            {% endif %}
+                        </div>
+
+                        <div class="step-name">
+                            Assigned
+                        </div>
+
+                    </div>
+
+
+                    <!-- IN PROGRESS -->
+
+                    <div class="step
+                    {% if complaint.status in ['In Progress', 'Resolved'] %}
+                        active
+                    {% endif %}
+                    ">
+
+                        <div class="circle">
+                            {% if complaint.status in ['In Progress', 'Resolved'] %}
+                                ✓
+                            {% else %}
+                                4
+                            {% endif %}
+                        </div>
+
+                        <div class="step-name">
+                            In Progress
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESOLVED -->
+
+                    <div class="step
+                    {% if complaint.status == 'Resolved' %}
+                        active
+                    {% endif %}
+                    ">
+
+                        <div class="circle">
+                            {% if complaint.status == 'Resolved' %}
+                                ✓
+                            {% else %}
+                                5
+                            {% endif %}
+                        </div>
+
+                        <div class="step-name">
+                            Resolved
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <a href="/dashboard" class="dashboard-link">
+            ← Back to Dashboard
+        </a>
+
+    </main>
+
+</body>
+
+</html>

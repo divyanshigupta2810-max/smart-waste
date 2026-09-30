@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | SmartWaste</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #052e16, #166534, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            background: white;
+            border-radius: 26px;
+            padding: 45px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .logo {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 18px;
+            border-radius: 18px;
+            background: #dcfce7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+        }
+
+        .header h1 {
+            color: #14532d;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .login-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .login-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            background: #ffffff;
+            transition: 0.25s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-5px);
+            border-color: #86efac;
+            box-shadow: 0 15px 35px rgba(22, 101, 52, 0.12);
+        }
+
+        .card-icon {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 18px;
+            border-radius: 16px;
+            background: #f0fdf4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+        }
+
+        .login-card h2 {
+            font-size: 21px;
+            color: #111827;
+            margin-bottom: 9px;
+        }
+
+        .login-card p {
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+            margin-bottom: 22px;
+        }
+
+        .login-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 11px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .login-btn:hover {
+            background: #15803d;
+        }
+
+        .admin-card .card-icon {
+            background: #f3f4f6;
+        }
+
+        .admin-card .login-btn {
+            background: #14532d;
+        }
+
+        .admin-card .login-btn:hover {
+            background: #166534;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .register a {
+            color: #15803d;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .register a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #9ca3af;
+            font-size: 11px;
+        }
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .login-options {
+                grid-template-columns: 1fr;
+            }
+
+            .login-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="logo">
+            ♻️
+        </div>
+
+        <h1>Smart Waste Management</h1>
+
+        <p>
+            Choose how you want to access the system
+        </p>
+
+    </div>
+
+
+    <!-- LOGIN OPTIONS -->
+
+    <div class="login-options">
+
+        <!-- USER LOGIN -->
+
+        <div class="login-card">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <h2>User / Citizen</h2>
+
+            <p>
+                Report waste issues, track complaints,
+                and help keep your surroundings clean.
+            </p>
+
+            <a href="/user-login" class="login-btn">
+                Continue as User →
+            </a>
+
+        </div>
+
+
+        <!-- ADMIN LOGIN -->
+
+        <div class="login-card admin-card">
+
+            <div class="card-icon">
+                🏢
+            </div>
+
+            <h2>Administrator</h2>
+
+            <p>
+                Manage complaints, monitor reports,
+                and update complaint statuses.
+            </p>
+
+            <a href="/admin-login" class="login-btn">
+                Continue as Admin →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- REGISTER -->
+
+    <div class="register">
+
+        New user?
+        <a href="/register">Create an Account</a>
+
+    </div>
+
+
+    <div class="footer-note">
+        SmartWaste • Sustainable Communities through Technology
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | SmartWaste</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #052e16, #166534, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 950px;
+            min-height: 560px;
+            background: white;
+            border-radius: 26px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        /* LEFT PANEL */
+
+        .left-panel {
+            background: linear-gradient(150deg, #14532d, #166534);
+            color: white;
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 28px;
+        }
+
+        .left-panel h1 {
+            font-size: 38px;
+            margin-bottom: 16px;
+        }
+
+        .left-panel p {
+            color: #dcfce7;
+            line-height: 1.7;
+            font-size: 15px;
+            max-width: 380px;
+        }
+
+        .security-note {
+            margin-top: 35px;
+            padding: 15px 17px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 13px;
+            font-size: 13px;
+            color: #dcfce7;
+        }
+
+        /* RIGHT PANEL */
+
+        .right-panel {
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-panel h2 {
+            font-size: 29px;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 11px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            padding: 14px;
+            border-radius: 11px;
+            background: #16a34a;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #15803d;
+            transform: translateY(-1px);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 23px;
+            color: #15803d;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            .login-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .left-panel {
+                padding: 35px 30px;
+            }
+
+            .left-panel h1 {
+                font-size: 30px;
+            }
+
+            .security-note {
+                display: none;
+            }
+
+            .right-panel {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="left-panel">
+
+        <div class="logo">
+            🏢
+        </div>
+
+        <h1>Admin Portal</h1>
+
+        <p>
+            Manage waste complaints, monitor reports,
+            and coordinate efficient waste management
+            operations from one central dashboard.
+        </p>
+
+        <div class="security-note">
+            🔐 <strong>Restricted Access</strong><br>
+            This portal is intended for authorized
+            administrators only.
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right-panel">
+
+        <h2>Welcome Back</h2>
+
+        <p class="subtitle">
+            Sign in to access the administration dashboard.
+        </p>
+
+        <form method="POST">
+
+            <div class="form-group">
+
+                <label for="email">
+                    Admin Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter admin email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter admin password"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                Login as Admin →
+            </button>
+
+        </form>
+
+
+        <a href="/login" class="back-link">
+            ← Back to Login Selection
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

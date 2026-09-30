@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TEST LOGIN 123</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eef9f1, #dff3e6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            min-height: 600px;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        /* LEFT SIDE */
+
+        .welcome {
+            background: linear-gradient(145deg, #126c3f, #1c9a59);
+            color: white;
+            padding: 60px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        .welcome h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .welcome p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #e0f5e8;
+        }
+
+        .illustration {
+            font-size: 90px;
+            margin-top: 40px;
+        }
+
+        /* RIGHT SIDE */
+
+        .login-area {
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-area h2 {
+            font-size: 34px;
+            color: #173b2a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718078;
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #355444;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #d5e3da;
+            border-radius: 11px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.2s;
+            background: #fbfdfc;
+        }
+
+        input:focus {
+            border-color: #1b9658;
+            box-shadow: 0 0 0 3px rgba(27, 150, 88, 0.12);
+            background: white;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 11px;
+            background: #16834b;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #116d3e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(22, 131, 75, 0.22);
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 25px;
+            color: #718078;
+        }
+
+        .register a {
+            color: #16834b;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #16834b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome {
+                padding: 35px;
+                min-height: 280px;
+            }
+
+            .logo {
+                margin-bottom: 25px;
+            }
+
+            .welcome h1 {
+                font-size: 32px;
+            }
+
+            .illustration {
+                display: none;
+            }
+
+            .login-area {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT PANEL -->
+
+        <div class="welcome">
+
+            <div class="logo">
+                🌿 SmartWaste
+            </div>
+
+            <h1>
+                Welcome<br>
+                Back!
+            </h1>
+
+            <p>
+                Together, let's make our communities
+                cleaner, smarter and more sustainable.
+            </p>
+
+            <div class="illustration">
+                ♻️
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <div class="login-area">
+
+            <a href="/" class="back">
+                ← Back to Home
+            </a>
+
+            <h2>
+                Sign In
+            </h2>
+
+            <p class="subtitle">
+                Login to access your SmartWaste account.
+            </p>
+
+
+            <!-- BACKEND FORM — DO NOT CHANGE -->
+
+            <form method="POST">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Login →
+                </button>
+
+            </form>
+
+
+            <p class="register">
+                Don't have an account?
+                <a href="/register">Create one</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

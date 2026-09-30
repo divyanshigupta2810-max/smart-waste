@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Login | SmartWaste</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eaf8ef, #d8f0e2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 950px;
+            min-height: 580px;
+            background: white;
+            border-radius: 26px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.12);
+        }
+
+        /* LEFT */
+
+        .left {
+            background: linear-gradient(145deg, #126b3e, #1b9658);
+            color: white;
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 55px;
+        }
+
+        .left h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .left p {
+            color: #dff4e7;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .big-icon {
+            font-size: 85px;
+            margin-top: 45px;
+        }
+
+        /* RIGHT */
+
+        .right {
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .back {
+            color: #16834b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .right h2 {
+            color: #173b2a;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718078;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #355444;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #d4e3da;
+            border-radius: 11px;
+            background: #fbfdfc;
+            outline: none;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #16834b;
+            box-shadow: 0 0 0 3px rgba(22, 131, 75, 0.12);
+            background: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 11px;
+            background: #16834b;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #116d3e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(22, 131, 75, 0.22);
+        }
+
+        .hint {
+            text-align: center;
+            color: #718078;
+            font-size: 14px;
+            margin-top: 25px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .left {
+                padding: 35px;
+                min-height: 270px;
+            }
+
+            .logo {
+                margin-bottom: 25px;
+            }
+
+            .left h1 {
+                font-size: 32px;
+            }
+
+            .big-icon {
+                display: none;
+            }
+
+            .right {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- LEFT PANEL -->
+
+        <div class="left">
+
+            <div class="logo">
+                🌿 SmartWaste
+            </div>
+
+            <h1>
+                Welcome,<br>
+                Citizen!
+            </h1>
+
+            <p>
+                Sign in to report waste issues,
+                track your complaints and contribute
+                towards a cleaner community.
+            </p>
+
+            <div class="big-icon">
+                ♻️
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <div class="right">
+
+            <a href="/login" class="back">
+                ← Back to Login Selection
+            </a>
+
+            <h2>
+                User Login
+            </h2>
+
+            <p class="subtitle">
+                Enter your account details to continue.
+            </p>
+
+
+            <!-- BACKEND FORM — PRESERVED -->
+
+            <form method="POST">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Login as User →
+                </button>
+
+            </form>
+
+
+            <div class="hint">
+                🔒 Your account information is kept secure.
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
