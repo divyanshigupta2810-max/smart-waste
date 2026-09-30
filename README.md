@@ -36,6 +36,7 @@ Administrators can:
 - 🔐 User Registration
 - 🔑 User Login
 - 📝 Report Waste Issue
+- 📸 Upload Complaint Image
 - 🆔 Unique Complaint ID
 - 🔎 Track Complaint
 - 📊 Complaint Status Tracking
@@ -45,6 +46,7 @@ Administrators can:
 
 - 🔐 Admin Login
 - 📋 View All Complaints
+- 🖼️ View Complaint Images
 - 📊 Complaint Statistics
 - ⚠️ Priority Management
 - 🔄 Update Complaint Status
@@ -206,16 +208,11 @@ Role-based access prevents users from accessing the wrong dashboard.
 
 A citizen can submit a waste complaint by providing information such as:
 
-Waste category
-
-Description
-
-Location
-
-Priority
-
-Image (if enabled)
-
+- Waste category
+- Description
+- Location
+- Priority
+- Complaint image
 
 After submission, the system generates a unique Complaint ID.
 
