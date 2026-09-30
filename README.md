@@ -155,7 +155,7 @@ git clone https://github.com/divyanshigupta2810-max/smart-waste.git
 
 2. Open the project
 
-cd smart-waste-management
+cd smart-waste
 
 3. Create a virtual environment
 
